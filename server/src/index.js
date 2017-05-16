@@ -18,7 +18,7 @@ const io = socketio(server);
 /* Use middleware */
 app.use(logger());
 app.use(helmet());
-app.use(mount('/fit-fpesdu/', serve('../fit-fpesdu/build/')));
+app.use(mount('/', serve('../client/build/')));
 
 /* Start Koa */
 console.log('Starting server…');
@@ -40,7 +40,7 @@ io.on('connection', async socket => {
     const conn = await r.connect({
         host: 'localhost',
         port: 12309,
-        db: 'fit_fpesdu',
+        db: 'pesda_board',
     });
 
     socket.emit('comments', await (await r.table('comments').run(conn)).toArray());

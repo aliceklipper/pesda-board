@@ -15,7 +15,6 @@ const DefinePlugin = webpack.DefinePlugin;
 // const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 const { dev, prod } = require('alice-helpers');
-const pkg = require('./package.json');
 
 /*
  * Config options
@@ -38,7 +37,7 @@ const output = () => ({
     filename: '[name].js',
     path: join(process.cwd(), 'build'),
     pathinfo: dev(),
-    publicPath: `/${pkg.name}/`,
+    publicPath: `/`,
 });
 
 /* Source maps configuration */
@@ -49,7 +48,7 @@ const devServer = () => ({
     compress: true,
     port: 1337,
     historyApiFallback: true,
-    publicPath: `/${pkg.name}/`,
+    publicPath: `/`,
     contentBase: join(process.cwd(), 'build'),
     watchContentBase: true,
 });
