@@ -10,6 +10,9 @@ const mount = require('koa-mount');
 const logger = require('koa-logger');
 const helmet = require('koa-helmet');
 
+/* Import schemas */
+const { commentSchema } = require('./schemas/comment');
+
 /* Initialize application */
 const app = new Koa();
 const server = http.createServer(app.callback());
@@ -46,8 +49,18 @@ io.on('connection', async socket => {
     socket.emit('comments', await (await r.table('comments').run(conn)).toArray());
 
     socket.on('comment', async data => {
-        const comment = Object.assign({}, data, { timestamp: Date.now() });
-        io.sockets.emit('comments', [comment]);
-        await r.table('comments').insert(comment).run(conn);
+        if (commentSchema(data)) {
+            const comment = {
+                name: data.name,
+                theme: data.theme,
+                comment: data.comment,
+                timestamp: Date.now(),
+            };
+
+            io.sockets.emit('comments', [comment]);
+            await r.table('comments').insert(comment).run(conn);
+        } else {
+            socket.emit('comment-error', { message: 'Invalid data.' });
+        }
     });
 });

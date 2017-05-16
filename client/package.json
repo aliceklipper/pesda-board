@@ -9,6 +9,7 @@
         "test:lint": "eslint ./src/"
     },
     "dependencies": {
+        "ajv": "^5.1.1",
         "awl": "^0.0.2",
         "bluebird": "^3.5.0",
         "material-ui": "^0.18.1",

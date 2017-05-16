@@ -5,6 +5,7 @@
     "author": "Alice Klipper <alice.klipper@yandex.com> (https://vk.com/alice.klipper)",
     "license": "MIT",
     "dependencies": {
+        "ajv": "^5.1.1",
         "koa": "^2.2.0",
         "koa-helmet": "^3.1.0",
         "koa-logger": "^2.0.1",

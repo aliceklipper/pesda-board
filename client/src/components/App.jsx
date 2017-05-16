@@ -25,6 +25,8 @@ export default class App extends React.Component {
 
         socket.on('connect', this.handleConnect);
         socket.on('disconnect', this.handleDisconnect);
+
+        // TODO: Handle `comment-error` event. Show toast or alert.
     }
 
     render() {
@@ -40,6 +42,10 @@ export default class App extends React.Component {
     }
 
     handlePost(input) {
+        if (Math.random() > 0.5) {
+            input.foo = 'bar';
+        }
+
         this.socket.emit('comment', input);
     }
 
