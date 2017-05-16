@@ -1,0 +1,24 @@
+{
+    "name": "pesda-board-server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Alice Klipper <alice.klipper@yandex.com> (https://vk.com/alice.klipper)",
+    "license": "MIT",
+    "dependencies": {
+        "koa": "^2.2.0",
+        "koa-helmet": "^3.1.0",
+        "koa-logger": "^2.0.1",
+        "koa-mount": "^3.0.0",
+        "koa-static": "^3.0.0",
+        "rethinkdb": "^2.3.3",
+        "socket.io": "^2.0.1"
+    },
+    "devDependencies": {
+        "babel-eslint": "^7.2.3",
+        "eslint": "^3.19.0",
+        "eslint-config-google": "^0.7.1",
+        "eslint-config-prettier": "^2.1.0",
+        "eslint-plugin-prettier": "^2.0.1",
+        "prettier": "^1.3.1"
+    }
+}

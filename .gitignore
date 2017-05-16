@@ -1,0 +1,6 @@
+*.iml
+*.lock
+.idea/
+/server/var/
+/client/build/
+node_modules/
